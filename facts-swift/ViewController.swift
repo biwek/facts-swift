@@ -13,9 +13,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var factLabel: UILabel!
     
+    let factBook = FactBook()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        factLabel.numberOfLines = 8
+        factLabel.text = factBook.getRandomFact()
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,8 +29,8 @@ class ViewController: UIViewController {
     }
     
     // IB = Interface Builder
-    @IBAction func showFact() {
-        factLabel.text = "Another fact"
+    @IBAction func swipeShowFact(sender: AnyObject) {
+        factLabel.text = factBook.getRandomFact()
     }
 
 }
